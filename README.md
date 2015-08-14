@@ -5,7 +5,7 @@ The script uses `ipify.org` to figure out the machine's public IP. It only acces
 
 ## Setup
 
-Add your GoDaddy username and password to the file `godaddy-dyndns.conf`.
+Copy the file `godaddy-dyndns.conf.template` to `godaddy-dyndns.conf` and add your GoDaddy username and password to the new file.
 
 Then setup a Python venv:
 
