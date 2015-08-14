@@ -3,6 +3,8 @@ DynDNS-like public IP auto-updater script for GoDaddy.
 
 The script uses `ipify.org` to figure out the machine's public IP. It only accesses GoDaddy when if the IP has changed since the last (successful) script invocation. It logs all its activities to the file `godaddy-dyndns.log` (and automatically rotates the log).
 
+Based on [Sascha's script with the same name](https://saschpe.wordpress.com/2013/11/12/godaddy-dyndns-for-the-poor/).
+
 ## Setup
 
 Copy the file `godaddy-dyndns.conf.template` to `godaddy-dyndns.conf` and add your GoDaddy username and password to the new file.
