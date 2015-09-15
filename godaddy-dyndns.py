@@ -95,8 +95,8 @@ def main():
             # but there's not much we can do with the current API.
             logging.info("%s unchanged" % full_domain)
          else:
-            if not client.update_dns_record(full_domain, ip):
-               raise RuntimeError('DNS update failed for %s' % full_domain)
+            #if not client.update_dns_record(full_domain, ip):
+            #   raise RuntimeError('DNS update failed for %s' % full_domain)
 
             logging.info("%s changed from %s" % (full_domain, dns_record.value))
             
