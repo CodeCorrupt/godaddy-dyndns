@@ -80,25 +80,35 @@ def main():
     
    # If the IP hasn't changed then there's nothing to do.
    if ip is None:
+      logging.info("IP has not changed")
       return None
 
+   # Open config file to read
+   config = configparser.ConfigParser()
+   config.read('godaddy-dyndns.conf')
+   domains = config.get('godaddy', 'domains').split(',')
+   records = config.get('godaddy', 'records').split(',')
+   
+   #Initialize godaddy client
    client = get_godaddy_client()
 
-   logging.info("Changing all domains to %s" % ip)
+   logging.info("Changing listed domains to %s" % ip)
    
    for domain in client.find_domains():
-      for dns_record in client.find_dns_records(domain):
-         full_domain = "%s.%s" % (dns_record.hostname, domain)
-   
-         if ip == dns_record.value:
-            # There's a race here (if there are concurrent writers),
-            # but there's not much we can do with the current API.
-            logging.info("%s unchanged" % full_domain)
-         else:
-            #if not client.update_dns_record(full_domain, ip):
-            #   raise RuntimeError('DNS update failed for %s' % full_domain)
-
-            logging.info("%s changed from %s" % (full_domain, dns_record.value))
+      if domain in domains:  #Check to make sure the domain is requested
+         for dns_record in client.find_dns_records(domain):
+            if dns_record.hostname in records:
+               full_domain = "%s.%s" % (dns_record.hostname, domain)
+      
+               if ip == dns_record.value:
+                  # There's a race here (if there are concurrent writers),
+                  # but there's not much we can do with the current API.
+                  logging.info("%s unchanged" % full_domain)
+               else:
+                  if not client.update_dns_record(full_domain, ip):
+                     raise RuntimeError('DNS update failed for %s' % full_domain)
+      
+                  logging.info("%s changed from %s" % (full_domain, dns_record.value))
             
    store_ip_as_previous_public_ip(ip)
 

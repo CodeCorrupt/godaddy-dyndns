@@ -1,3 +1,8 @@
 [godaddy]
 username=
 password=
+domains=
+# Comma separated list of the domain(s) to update
+domains=
+# Comma separated list of the record(s) to update
+records=
