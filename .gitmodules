@@ -1,0 +1,3 @@
+[submodule "mypygodaddy"]
+	path = mypygodaddy
+	url = git@github.com:CodeCorrupt/pygodaddy.git
