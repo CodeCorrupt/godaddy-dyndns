@@ -7,7 +7,9 @@ Based on [Sascha's script with the same name](https://saschpe.wordpress.com/2013
 
 ## Setup
 
-Copy the file `godaddy-dyndns.conf.template` to `godaddy-dyndns.conf` and add your GoDaddy username and password to the new file.
+After cloning this repo be sure to initialize the submodule mypygodaddy AND ensure the symbolic link to ./mypygodaddy/pygodaddy is correct
+
+Copy the file `godaddy-dyndns.conf.template` to `godaddy-dyndns.conf` and add your information to the new file.
 
 Then setup a Python venv:
 
@@ -18,11 +20,7 @@ Then setup a Python venv:
 
 And lastly add `godaddy-dyndns.sh` to your crontab file, e.g.:
 
-    0 * * * * /path/to/script/godaddy-dyndns.sh
+    */5 * * * * /path/to/script/godaddy-dyndns.sh
     @reboot sleep 30 && /path/to/script/godaddy-dyndns.sh
 
 The above makes sure that the script runs when your machine boots, and then every hour after that. `sleep` is used to increase the chance that the network has started before the script is run.
-
-## TODO
-
-Maybe one should add some kind of max number of updates per day? In case the script breaks in some way.
