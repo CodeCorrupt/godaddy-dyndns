@@ -7,9 +7,13 @@ Based on [Sascha's script with the same name](https://saschpe.wordpress.com/2013
 
 ## Setup
 
-After cloning this repo be sure to initialize the submodule mypygodaddy AND ensure the symbolic link to ./mypygodaddy/pygodaddy is correct
+After cloning this repo be sure to initialize the submodule pygodaddy-src
+    git submodule init
+    git submodule update
+Ensure the symbolic link to ./pygodaddy-src/pygodaddy is correct
 
 Copy the file `godaddy-dyndns.conf.template` to `godaddy-dyndns.conf` and add your information to the new file.
+    cp godaddy-dyndns.conf.template godaddy-dyndns.conf
 
 Then setup a Python venv:
 
