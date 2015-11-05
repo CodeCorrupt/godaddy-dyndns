@@ -6,7 +6,16 @@ The script uses `ipify.org` to figure out the machine's public IP. It only acces
 Based on [Sascha's script with the same name](https://saschpe.wordpress.com/2013/11/12/godaddy-dyndns-for-the-poor/).
 
 ## Setup
+#### Automatic
+*WARNING!* setup.sh has ZERO error checking. All this script does is automate the steps listed blow.
+Run the setup script:
 
+    ./setup.sh
+
+Edit `godaddy-dyndns.conf` with your account info.
+You *must* add at least one domain and record for the script to do anything.
+
+#### Manuel
 After cloning this repo be sure to initialize the submodule pygodaddy-src
 
     git submodule init
@@ -14,16 +23,16 @@ After cloning this repo be sure to initialize the submodule pygodaddy-src
 
 Ensure the symbolic link to ./pygodaddy-src/pygodaddy is correct
 
-Copy the file `godaddy-dyndns.conf.template` to `godaddy-dyndns.conf` and add your information to the new file.
-
-    cp godaddy-dyndns.conf.template godaddy-dyndns.conf
-
-Then setup a Python venv:
+Setup a Python venv:
 
     python3 -m venv venv
     source venv/bin/activate
     pip install -r requirements.txt
     deactivate
+
+Copy the file `godaddy-dyndns.conf.template` to `godaddy-dyndns.conf` and add your information to the new file.
+
+    cp godaddy-dyndns.conf.template godaddy-dyndns.conf
 
 And lastly add `godaddy-dyndns.sh` to your crontab file, e.g.:
 
