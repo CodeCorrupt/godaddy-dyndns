@@ -7,7 +7,8 @@ Based on [Sascha's script with the same name](https://saschpe.wordpress.com/2013
 
 ## Setup
 #### Automatic
-*WARNING!* setup.sh has ZERO error checking. All this script does is automate the steps listed blow.
+*WARNING!* setup.sh has *ZERO* error checking. All this script does is automate the steps in Manual.
+
 Run the setup script:
 
     ./setup.sh
@@ -15,7 +16,7 @@ Run the setup script:
 Edit `godaddy-dyndns.conf` with your account info.
 You *must* add at least one domain and record for the script to do anything.
 
-#### Manuel
+#### Manual
 After cloning this repo be sure to initialize the submodule pygodaddy-src
 
     git submodule init
