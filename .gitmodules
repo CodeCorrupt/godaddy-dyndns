@@ -1,3 +1,3 @@
 [submodule "mypygodaddy"]
-	path = mypygodaddy
+	path = pygodaddy-src
 	url = https://github.com/CodeCorrupt/pygodaddy.git
