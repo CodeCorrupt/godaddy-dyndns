@@ -86,8 +86,8 @@ def main():
    # Open config file to read
    config = configparser.ConfigParser()
    config.read('godaddy-dyndns.conf')
-   domains = config.get('godaddy', 'domains').split(',')
-   records = config.get('godaddy', 'records').split(',')
+   domains = [x.strip() for x in (config.get('godaddy', 'domains').split(','))]
+   records = [x.strip() for x in (config.get('godaddy', 'records').split(','))]
    
    #Initialize godaddy client
    client = get_godaddy_client()
