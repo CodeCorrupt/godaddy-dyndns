@@ -545,6 +545,12 @@ aside a.button {
   background: transparent url(../images/download-button.png) 0 0 no-repeat;
 }
 
+aside .paypal {
+    margin: 0;
+    padding: 0;
+    padding-bottom: 20px;
+}
+
 code, pre {
   margin-bottom: 30px;
   font-family: Monaco, "Bitstream Vera Sans Mono", "Lucida Console", Terminal, monospace;
