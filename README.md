@@ -1,5 +1,5 @@
 # This has been deprecated in favor of a Node based solution
-See [godaddy-dyndns](https://github.com/CodeCorrupt/godaddy-dyndns)
+See [godaddy-dyndns](https://github.com/lmammino/godaddy-dns)
 
 # godaddy-dyndns
 DynDNS-like public IP auto-updater script for GoDaddy.
